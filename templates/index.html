@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iris Flower Prediction</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+        .container {
+            margin-top: 100px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Iris Flower Prediction</h1>
+        <form id="irisForm" action="/predict" method="post">
+            <div class="form-group">
+                <label for="sepal_length">Sepal Length:</label>
+                <input type="text" id="sepal_length" name="sepal_length" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="sepal_width">Sepal Width:</label>
+                <input type="text" id="sepal_width" name="sepal_width" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="petal_length">Petal Length:</label>
+                <input type="text" id="petal_length" name="petal_length" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="petal_width">Petal Width:</label>
+                <input type="text" id="petal_width" name="petal_width" class="form-control">
+            </div>
+            <input type="submit" value="Predict" class="btn btn-primary" onclick="return validateForm()">
+        </form>
+    </div>
+
+    <script>
+        function validateForm() {
+            var sepalLength = document.getElementById("sepal_length").value;
+            var sepalWidth = document.getElementById("sepal_width").value;
+            var petalLength = document.getElementById("petal_length").value;
+            var petalWidth = document.getElementById("petal_width").value;
+
+            if (sepalLength === "" || sepalWidth === "" || petalLength === "" || petalWidth === "") {
+                alert("กรุณากรอกตัวเลขให้ครบทุกช่องก่อนPredict.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+</html>
